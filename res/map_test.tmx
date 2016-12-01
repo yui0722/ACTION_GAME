@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="14" tilewidth="24" tileheight="24" nextobjectid="19">
+ <tileset firstgid="1" source="terrain.tsx"/>
+ <tileset firstgid="17" name="objects" tilewidth="24" tileheight="24" tilecount="5" columns="5">
+  <image source="object.png" width="120" height="24"/>
+  <tile id="0">
+   <properties>
+    <property name="animation" value="hazard.png"/>
+    <property name="animationCount" value="2"/>
+    <property name="category" value="2"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="category" value="4"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="category" value="8"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="category" value="16"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="category" value="32"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="22" name="enemy" tilewidth="24" tileheight="24" tilecount="5" columns="5">
+  <image source="enemy.png" width="120" height="24"/>
+  <tile id="0">
+   <properties>
+    <property name="category" type="int" value="64"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="category" type="int" value="127"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="category" type="int" value="256"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="category" type="int" value="512"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="category" type="int" value="1024"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Terrain" width="150" height="14">
+  <data encoding="base64" compression="zlib">
+   eJztmOEKwCAIhK33f+j9GIOMFliaYvfB/RljbsdltkJEBYIMBF5WvYCHHOSKg1zpUAmetCBXOiBXHItc3egvcsXJlCvPGccrV3WgCGjlyutcFOU85l0/GhZeePYrLyxz9fVCaU/q19xqL4uyXizfY9afsubKG639YPef3+jev2dJr0vrnmLX99NzUt/HZvWizDXYB3MQYW5tQa5yEeW7bs4VBGnrASEdAbs=
+  </data>
+ </layer>
+ <layer name="CollisionObj" width="150" height="14">
+  <data encoding="base64" compression="zlib">
+   eJzt10EKgCAQBVCvUN7/ruEiEBpalDhJ74HLgQH/KFMKADDTHhzgKmM+zCaNDBCp2Q3wSSv9G6v0CSNFu5c5+KeR99/qa3DkiuZp1s5c9bVyxVt9jrYyPld3/6zs5pixt3qvyHAAbzAFQQ==
+  </data>
+ </layer>
+ <layer name="CollisionEnemy" width="150" height="14">
+  <data encoding="base64" compression="zlib">
+   eJzt1zEOgCAMBVBOoej9D+rKAAYbAsS8NzEA7dCET0oAAABteXUDAIU7eO4c2gXspTbfI2e+Jwvkxvrvjsn1rsn1ACCqfLN6M3w060ft+kf4mi/e9vfe1do3O+tAzQPKFQHB
+  </data>
+ </layer>
+</map>
