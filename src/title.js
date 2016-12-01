@@ -27,7 +27,9 @@ var TitleLayer = cc.Layer.extend({
                 life = 3;
                 socre = 0;
                 HP = 3;
-                    cc.director.runScene(new gameScene());
+                SceneAnime=  cc.TransitionFade.create(2, new gameScene());
+              cc.director.runScene(SceneAnime)
+                    //cc.director.runScene(new gameScene());
             },
             onKeyReleased: function(keyCode, event) {
 

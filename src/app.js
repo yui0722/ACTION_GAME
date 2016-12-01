@@ -262,11 +262,15 @@ var game = cc.Layer.extend({
                 life--;
                 lifeText.setString("stock:" + life);
                 HP = 3;
-                cc.director.runScene(new gameScene());
+                SceneAnime=  cc.TransitionFade.create(2, new gameScene());
+              cc.director.runScene(SceneAnime);
+                //cc.director.runScene(new gameScene());
             }
 
             if (life <= 0) {
-                cc.director.runScene(new gameoverScene());
+              SceneAnime=  cc.TransitionCrossFade.create(2, new gameoverScene());
+            cc.director.runScene(SceneAnime);
+                //cc.director.runScene(new gameoverScene());
             }
 
             //衝突したオブジェクトを消すのは、update関数で定期的に行う

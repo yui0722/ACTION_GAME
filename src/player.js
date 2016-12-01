@@ -28,7 +28,7 @@ var Player = cc.Class.extend({ // cc.Classを継承
      // ランニングアクションを初期化
      var animFrames = [];
      for (var i = 0; i < 4; i++) {
-        var spriteFrame = new cc.SpriteFrame(res.player_png, cc.rect(75 * i, 0, 50, 90));
+        var spriteFrame = new cc.SpriteFrame(res.player_png, cc.rect(75 * i, 0, 40, 90));
           var str = "player" + i;
         cc.spriteFrameCache.addSpriteFrame(spriteFrame,  str);
         var frame = cc.spriteFrameCache.getSpriteFrame(str);

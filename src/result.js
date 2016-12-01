@@ -21,7 +21,9 @@ var gameoverLayer = cc.Layer.extend({
                 if (keyCode == 13)
                 HP = 10;
                  score = 0;
-                    cc.director.runScene(new TitleScene());
+                 SceneAnime=  cc.TransitionFade.create(2, new TitleScene());
+               cc.director.runScene(SceneAnime)
+                  //cc.director.runScene(new TitleScene());
             },
             onKeyReleased: function(keyCode, event) {
 

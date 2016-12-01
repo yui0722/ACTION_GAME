@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="14" tilewidth="24" tileheight="24" nextobjectid="19">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="180" height="14" tilewidth="24" tileheight="24" nextobjectid="19">
  <tileset firstgid="1" source="terrain.tsx"/>
  <tileset firstgid="17" name="objects" tilewidth="24" tileheight="24" tilecount="5" columns="5">
   <image source="object.png" width="120" height="24"/>
@@ -59,19 +59,19 @@
    </properties>
   </tile>
  </tileset>
- <layer name="Terrain" width="150" height="14">
+ <layer name="Terrain" width="180" height="14">
   <data encoding="base64" compression="zlib">
-   eJztmOEKwCAIhK33f+j9GIOMFliaYvfB/RljbsdltkJEBYIMBF5WvYCHHOSKg1zpUAmetCBXOiBXHItc3egvcsXJlCvPGccrV3WgCGjlyutcFOU85l0/GhZeePYrLyxz9fVCaU/q19xqL4uyXizfY9afsubKG639YPef3+jev2dJr0vrnmLX99NzUt/HZvWizDXYB3MQYW5tQa5yEeW7bs4VBGnrASEdAbs=
+   eJztl0sOwCAIRNX7H7qLdqOxxA/Ix3kJmy60wHSgOaWUEYhAAV5Wa4Ea2gB6roGefQM910DPvsC+QSOhZ9RXhl5doeeaSHqO2lsqL62cSycswKVnrfkXde6O5hQt710kaqHpz15Z/SYl9Vy+s2c9uPWYVe+20k/J96D8WDv/0VnBOVMi+zN3jVbrTv23tGfNPp+9Nzq7/T69B7e+Td1nZW+9Yd/Q8GLq/EhY+x+6Qc9WsNR3bqzkBT2f4283RCC8xgO5FgIQ
   </data>
  </layer>
- <layer name="CollisionObj" width="150" height="14">
+ <layer name="CollisionObj" width="180" height="14">
   <data encoding="base64" compression="zlib">
-   eJzt10EKgCAQBVCvUN7/ruEiEBpalDhJ74HLgQH/KFMKADDTHhzgKmM+zCaNDBCp2Q3wSSv9G6v0CSNFu5c5+KeR99/qa3DkiuZp1s5c9bVyxVt9jrYyPld3/6zs5pixt3qvyHAAbzAFQQ==
+   eJzt2dsKgCAMANB+ofz/f+0piDAoUOb0HBg+emFzgtsGANDHHjj3UQlgHBF16U4g0mq593Wvq53LKEr0AuAmU3/Osk6YzZ/aU6O00qo/RfeO8hKQ6Q12kc/MpGc+1/5GstX7bMpjnI37mVWcq/8Flw==
   </data>
  </layer>
- <layer name="CollisionEnemy" width="150" height="14">
+ <layer name="CollisionEnemy" width="180" height="14">
   <data encoding="base64" compression="zlib">
-   eJzt1zEOgCAMBVBOoej9D+rKAAYbAsS8NzEA7dCET0oAAABteXUDAIU7eO4c2gXspTbfI2e+Jwvkxvrvjsn1rsn1ACCqfLN6M3w060ft+kf4mi/e9vfe1do3O+tAzQPKFQHB
+   eJzt10EKwCAMBMC8wtr/f7QvqFgI0eLMeUm8BNYIAAAAAICxa/UD4BCZt9aTMuRpxfvu4n0AwN7+0A12/Xt+7XGj/Oyst1x1pwQiHioZASw=
   </data>
  </layer>
 </map>
