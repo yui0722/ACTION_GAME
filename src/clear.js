@@ -2,6 +2,19 @@
 var clearLayer = cc.Layer.extend({
     ctor: function() {
         this._super();
+
+
+        audioEngine = cc.audioEngine;
+        if (audioEngine.isMusicPlaying()) {
+            audioEngine.stopMusic();
+        }
+        //bgm再生
+        if (!audioEngine.isMusicPlaying()) {
+            //audioEngine.playMusic("res/bgm_main.mp3", true);
+            audioEngine.playMusic(res.clear_mp3, true);
+
+        }
+
         var size = cc.director.getWinSize();
         // 画像の追加
         var sprite = cc.Sprite.create(res.clear_png);

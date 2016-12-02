@@ -10,6 +10,17 @@ var gameoverLayer = cc.Layer.extend({
         sprite.setScale(0.8);
         this.addChild(sprite, 0);
 
+        audioEngine = cc.audioEngine;
+        if (audioEngine.isMusicPlaying()) {
+            audioEngine.stopMusic();
+        }
+        //bgm再生
+        if (!audioEngine.isMusicPlaying()) {
+            //audioEngine.playMusic("res/bgm_main.mp3", true);
+            audioEngine.playMusic(res.gameover_mp3, true);
+
+        }
+
 
         var sprite = cc.Sprite.create(res.exit_png);
         sprite.setPosition(size.width / 2, size.height  / 3);

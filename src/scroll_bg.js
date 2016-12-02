@@ -24,7 +24,7 @@ var Scroll_BG = cc.Layer.extend({
 
         this.spriteBGwidth = this.spriteBG1.getContentSize().width;
 
-        this.spriteBG2 = new cc.Sprite(res.background_png);
+        this.spriteBG2 = new cc.Sprite(res.background_png2);
         this.spriteBG2.setAnchorPoint(0, 0);
         this.spriteBG2.setPosition(this.spriteBGwidth, 0);
         this.addChild(this.spriteBG2);

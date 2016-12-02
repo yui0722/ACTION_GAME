@@ -61,12 +61,12 @@
  </tileset>
  <layer name="Terrain" width="180" height="14">
   <data encoding="base64" compression="zlib">
-   eJztl0sOwCAIRNX7H7qLdqOxxA/Ix3kJmy60wHSgOaWUEYhAAV5Wa4Ea2gB6roGefQM910DPvsC+QSOhZ9RXhl5doeeaSHqO2lsqL62cSycswKVnrfkXde6O5hQt710kaqHpz15Z/SYl9Vy+s2c9uPWYVe+20k/J96D8WDv/0VnBOVMi+zN3jVbrTv23tGfNPp+9Nzq7/T69B7e+Td1nZW+9Yd/Q8GLq/EhY+x+6Qc9WsNR3bqzkBT2f4283RCC8xgO5FgIQ
+   eJztl20LgCAMhKf//0dHRJCikq+b5z2wLxHatvOaTkQcgwEU5KG1FqyhDajnEOp5b6jnEOp5b7ywF19m1IL1ncNdVx8F/TkESc+ovS3lpZVzfK68wjekGFkLjfs26j3/b05oefeC5s+70nomZ+r5nWdqPTj2mFbvttLPmd9R8mPt/P/+K0b+U5D9eXSNWuueeje3Vu3z2n3R6e336jk49u3Sflbm1hPmDQ0vLq2PhLX70Al6toKlvo/GSl7U8zpysyGDsWtc0iICEQ==
   </data>
  </layer>
  <layer name="CollisionObj" width="180" height="14">
   <data encoding="base64" compression="zlib">
-   eJzt2dsKgCAMANB+ofz/f+0piDAoUOb0HBg+emFzgtsGANDHHjj3UQlgHBF16U4g0mq593Wvq53LKEr0AuAmU3/Osk6YzZ/aU6O00qo/RfeO8hKQ6Q12kc/MpGc+1/5GstX7bMpjnI37mVWcq/8Flw==
+   eJzt1UEKACEIAEC/sPX/v7bH6FKXsGgGxKuKaAQAwB5fdgG/0gUAZHntH632+tpcTlGzC4COOwDMuBNksHcA3KqEP3aaOmTgTg3yegH7
   </data>
  </layer>
  <layer name="CollisionEnemy" width="180" height="14">
