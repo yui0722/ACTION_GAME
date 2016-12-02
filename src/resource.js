@@ -5,10 +5,10 @@ var res = {
     brick4x1_png: "res/brick4x1.png",
     brick4x2_png: "res/brick4x2.png",
     ground_png: "res/ground.png",
-    totem_png: "res/totem.png",
     player_png: "res/player3.png",
     terrain_png: "res/terrain.png",
     background_png: "res/background2.png",
+    background_png2: "res/kari.png",
     map00_tmx: "res/map00.tmx",
     map_test_tmx: "res/map_test.tmx",
     object_tsx: "res/object.tsx",
@@ -37,6 +37,12 @@ var res = {
     game_title_png: "res/title3.png",
     gameover_png:"res/gameoverkari2.png",
     exit_png: "res/exit.png",
+    heal_mp3: "res/heal01.mp3",
+    hit_mp3: "res/hit01.mp3",
+    bgm_main_mp3:"res/tw070.mp3",
+    title_bgm: "res/tw043.mp3",
+    gameover_mp3: "res/st011.mp3",
+    clear_mp3: "res/tw006.mp3",
 };
 
 var g_resources = [];
