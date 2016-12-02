@@ -5,7 +5,6 @@ var res = {
     brick4x1_png: "res/brick4x1.png",
     brick4x2_png: "res/brick4x2.png",
     ground_png: "res/ground.png",
-    totem_png: "res/totem.png",
     player_png: "res/player3.png",
     terrain_png: "res/terrain.png",
     background_png: "res/background2.png",
