@@ -36,10 +36,14 @@ var clearLayer = cc.Layer.extend({
         this.addChild(scoreText, 1);
         scoreText.setPosition(size.width /2 , size.height - 150);
 
+
         cc.eventManager.addListener({
             event: cc.EventListener.KEYBOARD,
             onKeyPressed: function(keyCode, event) {
                 if (keyCode == 13)
+                HP = 3;
+                score = 0;
+                life = 3;
                     cc.director.runScene(new TitleScene());
             },
             onKeyReleased: function(keyCode, event) {

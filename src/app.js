@@ -138,9 +138,6 @@ var game = cc.Layer.extend({
             },
             onTouchEnded: function(touch, event) {
 
-                leftbtn.setOpacity(128);
-                rightbtn.setOpacity(128);
-                jumpbtn.setOpacity(128);
             }
         });
 
@@ -157,7 +154,7 @@ var game = cc.Layer.extend({
                     this.player.sprite.setFlippedX(true);
 
                 } else if (keyCode == 38) { //上
-                    this.player.body.applyImpulse(cp.v(0, 10), cp.v(0, 0)); //run speed
+                    this.player.body.applyImpulse(cp.v(0, 150), cp.v(0, 0)); //run speed
 
                 } else if (keyCode == 39) { //右
                     this.player.body.applyImpulse(cp.v(10, 0), cp.v(0, 0)); //run speed
@@ -209,6 +206,8 @@ var game = cc.Layer.extend({
     },
 
     collisionBegin: function(arbiter, space) {
+
+
 
         if (arbiter.a.tag == SpriteTag.terrain && arbiter.b.tag == SpriteTag.terrain) {
             if (this.player.status == PlayerStatus.landing) {

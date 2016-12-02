@@ -32,7 +32,7 @@ var TitleLayer = cc.Layer.extend({
         var sprite = cc.Sprite.create(res.game_title_png);
         sprite.setPosition(size.width / 2, size.height / 2);
         sprite.setScale(1.2);
-        this.addChild(sprite, 0);
+        this.addChild(sprite, 1);
 
         cc.eventManager.addListener({
             event: cc.EventListener.KEYBOARD,
