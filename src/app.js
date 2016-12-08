@@ -52,6 +52,7 @@ var gameScene = cc.Scene.extend({
         var backgroundLayer = cc.LayerGradient.create(cc.color(0xdf, 0x9f, 0x83, 255), cc.color(0xfa, 0xf7, 0x9f, 255));
         this.addChild(backgroundLayer);
 
+            
 
         HPText = cc.LabelTTF.create("HP:" + HP, "けいふぉんと", "24", cc.TEXT_ALIGNMENT_CENTER);
         this.addChild(HPText, 1);
