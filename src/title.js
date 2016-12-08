@@ -1,9 +1,23 @@
 //title
-
+var audioEngine;
 var TitleLayer = cc.Layer.extend({
     ctor: function() {
         this._super();
         var size = cc.director.getWinSize();
+
+
+        audioEngine = cc.audioEngine;
+        if (audioEngine.isMusicPlaying()) {
+            audioEngine.stopMusic();
+        }
+        //bgm再生
+        if (!audioEngine.isMusicPlaying()) {
+            //audioEngine.playMusic("res/bgm_main.mp3", true);
+            audioEngine.playMusic(res.title_bgm, true);
+
+        }
+
+
         // 画像の追加
         var sprite = cc.Sprite.create(res.title_png);
         sprite.setPosition(size.width / 2, size.height / 2);
@@ -12,13 +26,13 @@ var TitleLayer = cc.Layer.extend({
 
         var sprite = cc.Sprite.create(res.start_png);
         sprite.setPosition(size.width / 2, size.height / 6);
-        sprite.setScale(0.7);
+        sprite.setScale(0.6);
         this.addChild(sprite, 1);
 
         var sprite = cc.Sprite.create(res.game_title_png);
         sprite.setPosition(size.width / 2, size.height / 2);
-        sprite.setScale(1.0);
-        this.addChild(sprite, 0);
+        sprite.setScale(1.2);
+        this.addChild(sprite, 1);
 
         cc.eventManager.addListener({
             event: cc.EventListener.KEYBOARD,

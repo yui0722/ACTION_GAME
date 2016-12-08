@@ -2,6 +2,7 @@ var space;
 var shapeArray = [];
 var objectArray = [];
 var enemyArray = [];
+var audioEngine;
 var HP = 3;
 var life = 3;
 var score = 0;
@@ -36,9 +37,22 @@ var gameScene = cc.Scene.extend({
     onEnter: function() {
         this._super();
 
+
+        audioEngine = cc.audioEngine;
+        if (audioEngine.isMusicPlaying()) {
+            audioEngine.stopMusic();
+        }
+        //bgm再生
+        if (!audioEngine.isMusicPlaying()) {
+            //audioEngine.playMusic("res/bgm_main.mp3", true);
+            audioEngine.playMusic(res.bgm_main_mp3, true);
+
+        }
+
         var backgroundLayer = cc.LayerGradient.create(cc.color(0xdf, 0x9f, 0x83, 255), cc.color(0xfa, 0xf7, 0x9f, 255));
         this.addChild(backgroundLayer);
 
+            
 
         HPText = cc.LabelTTF.create("HP:" + HP, "けいふぉんと", "24", cc.TEXT_ALIGNMENT_CENTER);
         this.addChild(HPText, 1);
@@ -55,7 +69,7 @@ var gameScene = cc.Scene.extend({
         space = new cp.Space();
         space.gravity = cp.v(0, -100);
         var debugDraw = cc.PhysicsDebugNode.create(space);
-        debugDraw.setVisible(true);
+        debugDraw.setVisible(false);
         this.addChild(debugDraw, 100);
 
         var wallBottom = new cp.SegmentShape(space.staticBody,
@@ -125,9 +139,6 @@ var game = cc.Layer.extend({
             },
             onTouchEnded: function(touch, event) {
 
-                leftbtn.setOpacity(128);
-                rightbtn.setOpacity(128);
-                jumpbtn.setOpacity(128);
             }
         });
 
@@ -144,7 +155,7 @@ var game = cc.Layer.extend({
                     this.player.sprite.setFlippedX(true);
 
                 } else if (keyCode == 38) { //上
-                    this.player.body.applyImpulse(cp.v(0, 10), cp.v(0, 0)); //run speed
+                    this.player.body.applyImpulse(cp.v(0, 150), cp.v(0, 0)); //run speed
 
                 } else if (keyCode == 39) { //右
                     this.player.body.applyImpulse(cp.v(10, 0), cp.v(0, 0)); //run speed
@@ -197,6 +208,8 @@ var game = cc.Layer.extend({
 
     collisionBegin: function(arbiter, space) {
 
+
+
         if (arbiter.a.tag == SpriteTag.terrain && arbiter.b.tag == SpriteTag.terrain) {
             if (this.player.status == PlayerStatus.landing) {
                 cc.audioEngine.playEffect(res.landing_mp3);
@@ -211,11 +224,14 @@ var game = cc.Layer.extend({
                 scoreText.setString("SCORE:" + score);
             }
             if (arbiter.a.tag == SpriteTag.food || arbiter.b.tag == SpriteTag.food) {
-                cc.audioEngine.playEffect(res.food_mp3);
-                score = score + 5;
-                scoreText.setString("SCORE:" + score);
+                cc.audioEngine.playEffect(res.heal_mp3);
+                HP = HP + 1;
+                HPText.setString("HP:" + HP);
             }
             if (arbiter.a.tag == SpriteTag.bomb || arbiter.b.tag == SpriteTag.bomb) {
+                if (audioEngine.isMusicPlaying()) {
+                    audioEngine.stopMusic();
+                }
                 cc.director.runScene(new clearLayer());
             }
             if (arbiter.a.tag == SpriteTag.monster1 || arbiter.b.tag == SpriteTag.monster1) {
@@ -228,27 +244,32 @@ var game = cc.Layer.extend({
                 console.log("青");
                 HP--;
                 HPText.setString("HP:" + HP);
+                cc.audioEngine.playEffect(res.hit_mp3);
             }
             if (arbiter.a.tag == SpriteTag.red || arbiter.b.tag == SpriteTag.red) {
                 console.log("赤");
                 HP--;
                 HPText.setString("HP:" + HP);
+                cc.audioEngine.playEffect(res.hit_mp3);
             }
             if (arbiter.a.tag == SpriteTag.fairy || arbiter.b.tag == SpriteTag.fairy) {
                 console.log("妖精");
                 HP--;
                 HPText.setString("HP:" + HP);
+                cc.audioEngine.playEffect(res.hit_mp3);
             }
             if (arbiter.a.tag == SpriteTag.ghost || arbiter.b.tag == SpriteTag.ghost) {
                 console.log("幽霊");
                 HP--;
                 HPText.setString("HP:" + HP);
+                cc.audioEngine.playEffect(res.hit_mp3);
 
             }
             if (arbiter.a.tag == SpriteTag.Slime || arbiter.b.tag == SpriteTag.Slime) {
                 console.log("スライム");
                 HP--;
                 HPText.setString("HP:" + HP);
+                cc.audioEngine.playEffect(res.hit_mp3);
 
             }
             console.log()
@@ -262,14 +283,20 @@ var game = cc.Layer.extend({
                 life--;
                 lifeText.setString("stock:" + life);
                 HP = 3;
-                SceneAnime=  cc.TransitionFade.create(2, new gameScene());
-              cc.director.runScene(SceneAnime);
+                SceneAnime = cc.TransitionFade.create(2, new gameScene());
+                cc.director.runScene(SceneAnime);
+                if (audioEngine.isMusicPlaying()) {
+                    audioEngine.stopMusic();
+                }
                 //cc.director.runScene(new gameScene());
             }
 
             if (life <= 0) {
-              SceneAnime=  cc.TransitionCrossFade.create(2, new gameoverScene());
-            cc.director.runScene(SceneAnime);
+                SceneAnime = cc.TransitionCrossFade.create(2, new gameoverScene());
+                cc.director.runScene(SceneAnime);
+                if (audioEngine.isMusicPlaying()) {
+                    audioEngine.stopMusic();
+                }
                 //cc.director.runScene(new gameoverScene());
             }
 
@@ -289,78 +316,3 @@ var game = cc.Layer.extend({
         return true;
     },
 });
-
-// this.addPostStepCallback(function() { // ステップ処理終了時に実行
-//    for (var int = 0; int < this.shapeArray.length; int++) { // 衝突したコインを探す
-//       var shape = this.shapeArray[int]; // 配置済みオブジェクトの取得
-//       if (shape == shapes[1]) { // 衝突したコインの場合
-//          shape.removeFromParent(); // 削除処理を実行
-//          this.shapeArray.splice(int, 1); // 配列から削除
-//          break; // 処理を抜ける
-//       }
-//    }
-// }.bind(this)); // レイヤーのthisを使えるようにする
-
-/*
-
-var touchListener = cc.EventListener.create({
-   event: cc.EventListener.TOUCH_ONE_BY_ONE, // シングルタッチのみ対応
-   swallowTouches: false, // 以降のノードにタッチイベントを渡す
-   onTouchBegan: function(touch, event) { // タッチ開始時
-      var pos = touch.getLocation();
-
-      console.log("shapeArray.length:", shapeArray.length)
-         // すべてのshapをチェックする
-      for (var i = 0; i < shapeArray.length; i++) {
-         var shape = shapeArray[i];
-         console.log("shape.type:", i, shape.type)
-            //pointQueryは物理オブジェクトの内側がタップされたかどうか判定する関数
-         if (shape.pointQuery(cp.v(pos.x, pos.y)) != undefined) {
-            console.log("hit ")
-            if (shape.name == SpriteTag.destroyable) {
-               //ブロックをタップしたときは、消去する
-               space.removeBody(shape.getBody());
-               space.removeShape(shape);
-               gameLayer.removeChild(shape.image);
-               shapeArray.splice(i, 1);
-               console.log("remove block")
-               return;
-            } else if (shape.name == SpriteTag.totem) {
-               // トーテムをタップしたときは、衝撃を与える
-               shape.body.applyImpulse(cp.v(500, 0), cp.v(0, -20))
-               return;
-            }
-         }
-      }
-      // 何も無い場所をタップしたときは箱を追加する
-      gameLayer.addBody(pos.x, pos.y, 24, 24, true, res.brick1x1_png, SpriteTag.destroyable);
-      return;
-
-   }
-
-});
-*/
-
-
-//  addBody: function(posX, posY, width, height, isDynamic, spriteImage, type) {
-//     if (isDynamic) {
-//        var body = new cp.Body(1, cp.momentForBox(1, width, height));
-//     } else {
-//        var body = new cp.Body(Infinity, Infinity);
-//     }
-//     body.setPos(cp.v(posX, posY));
-//     var bodySprite = cc.Sprite.create(spriteImage);
-//     gameLayer.addChild(bodySprite, 0);
-//     bodySprite.setPosition(posX, posY);
-//     if (isDynamic) {
-//        space.addBody(body);
-//     }
-//     var shape = new cp.BoxShape(body, width, height);
-//     shape.setFriction(1);
-//     shape.setElasticity(0);
-//     shape.name = type;
-//     shape.setCollisionType(type);
-//     shape.image = bodySprite;
-//     space.addShape(shape);
-//     shapeArray.push(shape);
-//  },
